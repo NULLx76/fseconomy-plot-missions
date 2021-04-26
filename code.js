@@ -86,7 +86,7 @@ $.ajax({
 });
 
 // proxy is needed for CORS
-const proxy = 'https://cors-anywhere.herokuapp.com/';
+const proxy = 'https://no-cors.xirion.net/';
 
 // function that logs ajax errors
 function handle_ajax_err(xhr, status){
@@ -137,7 +137,7 @@ function plot(){
         the_map.removeLayer(l)
     }
     on_map = []
-    
+
     // execute ajax request to retrieve planes
     if (mock) {
         $.ajax({
@@ -196,9 +196,9 @@ function handle_planes_get(data){
 
     // form URL to get missions
     const joined_locs = locations.join("-")
-    icaos_url = encodeURI(`https://server.fseconomy.net/data?userkey=${access}&format=csv&query=icao&search=jobsfrom&icaos=${joined_locs}`)    
+    icaos_url = encodeURI(`https://server.fseconomy.net/data?userkey=${access}&format=csv&query=icao&search=jobsfrom&icaos=${joined_locs}`)
     console.log(`getting ${icaos_url}`);
-    
+
     // execute request
     // use closure to pass planeIds to handle_missions_get as opposed to global variables
     if (mock){
@@ -254,7 +254,7 @@ function handle_missions_get(planeids){
                     "pay": pay,
                     "payPerNM":  payPerNM
                 })
-            }  
+            }
         }
 
         console.log(`${missions.length} relevant missions found`);
@@ -298,7 +298,7 @@ function handle_missions_get(planeids){
     }
 }
 
- 
+
 
 // function that binds the message to markers
 function bindMarkerMessage(marker, message){
@@ -371,7 +371,7 @@ function initialise_map(){
     // initialise using mapbox
     the_map.addLayer(mapbox);
 
-    // add all to dictionary for control 
+    // add all to dictionary for control
     var baseMaps = {
         "Mapbox": mapbox,
         "Google Hybrid": googleHybrid,
@@ -405,7 +405,7 @@ function sortTable(key){
 }
 
 // function that performs the table refresh
-function addRowsToTable(){   
+function addRowsToTable(){
 
     // sort the missions
 
